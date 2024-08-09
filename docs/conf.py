@@ -19,6 +19,8 @@ todo_include_todos = False
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 htmlhelp_basename = 'Tahoe-LAFSdoc'
+html_extra_path = ['robots.txt']
+
 
 # -- Options for manual page output ---------------------------------------
 
