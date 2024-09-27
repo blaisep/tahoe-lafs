@@ -20,6 +20,7 @@ preserving your privacy and security.
 
    about-tahoe
 
+   tutorials/index
    Installation/install-tahoe
 
    running
