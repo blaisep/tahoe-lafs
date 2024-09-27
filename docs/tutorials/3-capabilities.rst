@@ -1,9 +1,14 @@
-.============================
-Capabilities control access
-============================
+==================================
+Use capabilities to control access
+==================================
 
 
-.. warning:: This is a placeholder for an upcoming tutorial
+.. warning:: This tutorial is under development
+
+
+Now that you can upload and download files, you may want to invite others to read some of that data.
+
+
 
 
 Create a capability

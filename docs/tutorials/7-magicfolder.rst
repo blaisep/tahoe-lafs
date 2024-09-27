@@ -2,6 +2,9 @@
 Private sharing with Magic Folder
 =================================
 
+.. warning:: The console commands in this section have not yet been validated. This warning will be removed when it is safe to copy and paste the code examples.
+
+
 Summary
 
 You will be able to detects local changes to files and uploads those changes to a Tahoe-LAFS grid. Magic Folder monitors a Tahoe-LAFS grid and downloads changes to the local filesystem.
@@ -31,6 +34,7 @@ Needs to be internet accessible because it will be accessed by several services 
  install tahoe-lafs using the :ref:`install tahoe client`_ process.
 
 .. code-block::
+
     # configure the storage node...
     tahoe --node-directory=./storage0 \
     create-node --hostname $STORAGE_FQDN \
@@ -75,20 +79,19 @@ Each remote client will need
 Before you begin
 -----------------
 
-Install the tahoe client in a venv using :ref:`install tahoe client`_ process
+Install the tahoe client in a venv using the :doc:`step-by-step process<index>`
 
 Point the tahoe client to the storage node
 ------------------------------------------
 
-:ref:`Prepare the client`_ using the fURL and pubkey from the storage node.
+Update the client settings with the fURL and pubkey from the storage node.
 
 
 Install Magic-Folder on each remote client
 ===========================================
 
-.. code-block::
 
-    pip install -U 'git+https://github.com/tahoe-lafs/magic-folder.git#egg=magic-folder'
+``pip install -U 'git+https://github.com/tahoe-lafs/magic-folder.git#egg=magic-folder'``
 
 
 .. note:: The installation process is temporarily cumbersome
@@ -117,10 +120,19 @@ magic-folder  --config=./mf0 set-config --enable invites
 Configure the Magic Folder
 ===========================
 
-magic-folder --config ./mf0 init --node-directory ./client0 --listen-endpoint tcp:8999:interface=localhost
+.. code-block::
 
+    magic-folder --config ./mf0 init \
+    --node-directory ./client0 \
+    --listen-endpoint tcp:8999:interface=localhost
 
-magic-folder --config ./mf0 add --name funny-photos --author $USER ~/photos
+and then
+
+.. code-block::
+
+    magic-folder --config ./mf0 \
+    add --name funny-photos \
+    --author $USER ~/photos
 
 
 Run the Magic Folder service on the remote client
@@ -153,5 +165,8 @@ Use the magic folder command::
 Each guest joins the Magic Folder
 =================================
 
- magic-folder  --config=./mf0 join --name=demo 6-narrative-endorse ~/magicf
+Each remote client will join the folder::
 
+    magic-folder  --config=./mf0 join --name=demo 6-narrative-endorse ~/magicf
+
+.. note:: Congratulations, you have completed the tutorial!

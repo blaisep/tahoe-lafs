@@ -1,6 +1,6 @@
-=============
-Availability
-=============
+==========================
+Survive a storage failure
+==========================
 
 .. warning:: The console commands in this section have not yet been validated. This warning will be removed when it is safe to copy and paste the code examples.
 
