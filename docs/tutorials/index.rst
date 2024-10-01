@@ -34,11 +34,16 @@ Before you begin
 
 Create and activate a local venv for tahoe::
 
-    python -m venv .venv && source .venv/bin/activate
+    python -m venv .venv && \
+    source .venv/bin/activate && \
+    pip install -U pip setuptools wheel
 
-Update the new venv and install tahoe-lafs::
+Install Tahoe packages
+======================
 
-    pip install -U pip setuptools wheel && \
+install tahoe-lafs::
+
+
     pip install attrs==23.2.0 'cryptography<42' tahoe-lafs
 
 .. note:: Use multiple terminal sessions for each of the various consoles you will eventually start. Most IDE's support independent terminals.

@@ -17,7 +17,7 @@ Create a simple client configuration::
     --shares-total=1 \
     --nickname=client0
 
-.. info:: These options are explained in `Client Configuration`_ .
+.. info:: These options are explained in :ref:`Client Configuration`_ .
 
 You will see the console output end with something like:
 
