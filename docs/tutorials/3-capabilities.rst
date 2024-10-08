@@ -5,13 +5,6 @@ Use capabilities to control access
 
 .. warning:: This tutorial is under development
 
-
-Now that you can upload and download files, you may want to invite others to read some of that data.
-
-Mutable vs. Immutable
-======================
-
-
 DIR2 cap for browsing directories
 =================================
 
@@ -19,9 +12,18 @@ DIR2 cap for browsing directories
 CHK for reading files
 =====================
 
+Now that you can upload and download files, you may want to invite others to read some of that data.
+
+Mutable vs. Immutable
+======================
+
+
+Reference
+=========
+
 
 Table of capabilities
-=====================
+---------------------
 
 From https://tahoe-lafs.org/trac/tahoe-lafs/wiki/Capabilities
 

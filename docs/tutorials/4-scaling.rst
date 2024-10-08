@@ -9,6 +9,7 @@ Now, we extend the section of availability by creating and joining a :term:`grid
 Clients need to find storage
 ============================
 
+
 Updating client configs is a pain
 Storage nodes may go offline
 
