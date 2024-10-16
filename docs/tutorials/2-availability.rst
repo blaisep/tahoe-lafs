@@ -30,10 +30,20 @@ See how Tahoe handles failures
 Upload a file to Tahoe
 ======================
 
-``tahoe put`` ...
+Upload the first file to the storage grid. A this point the storage is not yet a grid, the client recognizes only one storage node.
+
+.. code-block:: shell
+
+    tahoe put blah blah ...
 
 Check with CLI
 --------------
+
+Verify the upload using the cli to download and open the file.
+
+.. code-block::shell
+
+    tahoe ...
 
 
 Upload the first file
