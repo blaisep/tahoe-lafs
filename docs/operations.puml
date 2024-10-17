@@ -2,22 +2,51 @@
 skinparam Shadowing false
 
 actor "Terminal" as cli
-database "Storage 0 " as storage0
-participant "Client Only \n Node" as client0
-database "Storage 1 \n Node" as storage1
+participant "Front\nEnd" as client0
+database "Desktop " as storage0
+database "Cloud" as storage1
 
-cli --> storage0 : tahoe --create-client
-activate storage0
-storage0 -> storage0 : API
 
-cli --> client0 : tahoe --create-client
-activate client0
-deactivate storage0
+group start desktop storage
+    cli --> storage0 : tahoe run ...
+    activate storage0
+    storage0 -> storage0 : API
+end
 
-client0 -> client0 : API
-client0 -> client0 : http
+group start the frontend agent
+    cli -> client0 : tahoe run...
+    activate client0
 
-cli --> storage1 : tahoe --create-client
-activate storage1
-storage1 -> storage1 : API
+    client0 --> client0 : API
+    client0 --> client0 : http
+end
+
+group upload the first file
+    cli -> client0 : tahoe put logo.JPG
+    client0 --> storage0 : foolscap POST share...
+end
+
+group start cloud storage
+    cli -> storage1 : tahoe --create-client
+    activate storage1
+    storage1 --> storage1 : API
+end
+
+group upload the second file
+    cli -> client0 : tahoe put logo.PNG
+    client0 --> storage0 : foolscap POST share...
+    client0 --> storage1 : foolscap POST share...
+end
+
+group Stop desktop storage
+    cli -> storage0 : tahoe stop ...end
+    deactivate storage0
+end
+
+group download the first file
+    cli -> client0 : tahoe get logo.JPG
+    client0 --> storage0 : foolscap POST share...
+    client0 --> storage1 : foolscap POST share...
+    client0 <- storage0 : Unavailable
+end
 @enduml
