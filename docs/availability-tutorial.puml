@@ -1,0 +1,43 @@
+@startuml
+skinparam Shadowing false
+
+actor "Terminal" as cli
+participant "Front\nEnd" as client0
+database "Desktop" as storage0
+
+database "Cloud" as storage1
+
+group Create the storage
+    cli --> storage0 : tahoe --create-client
+    activate storage0
+    storage0 -> storage0 : API
+end
+group Create the front end
+    cli --> client0 : tahoe --create-client
+    activate client0
+    client0 -> client0 : API
+    client0 -> client0 : http
+end
+group Upload a JPG
+cli-->client0 : tahoe put
+cli --> client0 : tahoe stats
+end
+
+group Start a second storage node
+    cli --> storage1 : tahoe --create-client
+    activate storage1
+    storage1 -> storage1 : API
+end
+
+group Upload a PNG file
+    cli--> client0 : tahoe put
+    cli --> client0 : tahoe stats
+end
+
+
+group Stop the first storage node
+    cli-> client0 : stop tahoe
+    deactivate storage0
+    cli -> cli : tahoe delete
+end
+@enduml

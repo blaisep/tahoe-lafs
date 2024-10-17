@@ -1,21 +1,23 @@
 @startuml
 skinparam Shadowing false
 
-participant "Terminal \n shell" as cli
-database "Storage 0 \n Node" as storage0
+actor "Terminal" as cli
+database "Storage 0 " as storage0
 participant "Client Only \n Node" as client0
 database "Storage 1 \n Node" as storage1
 
 cli --> storage0 : tahoe --create-client
 activate storage0
-storage0 -> storage0 : foolscap
+storage0 -> storage0 : API
 
 cli --> client0 : tahoe --create-client
 activate client0
-client0 -> client0 : foolscap
+deactivate storage0
+
+client0 -> client0 : API
 client0 -> client0 : http
 
 cli --> storage1 : tahoe --create-client
 activate storage1
-storage1 -> storage1 : foolscap
+storage1 -> storage1 : API
 @enduml
