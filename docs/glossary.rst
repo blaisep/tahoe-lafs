@@ -29,8 +29,10 @@ Glossary of Tahoe-LAFS Terms
    swissnum
      a short random string which is part of a fURL/NURL and which acts as a shared secret to authorize clients to use a storage service
 
+
    lease
      state associated with a share informing a storage server of the duration of storage desired by a client
+
 
    share
      a single unit of client-provided arbitrary data to be stored by a storage server
