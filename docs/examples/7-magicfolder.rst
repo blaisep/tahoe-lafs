@@ -99,8 +99,8 @@ Configure the Magic Folder services on each remote client
 
 On each remote client::
 
-    magic-folder --config ./mf0 init --node-directory ./client0 --listen-endpoint tcp:8999:interface=localhost
-    magic-folder --config ~/tahoe/mf0 init --node-directory ~/tahoe/tahoe_client --listen-endpoint tcp:8999:interface=localhost
+    $ magic-folder --config ./mf0 init --node-directory ./client0 --listen-endpoint tcp:8999:interface=localhost
+    $ magic-folder --config ~/tahoe/mf0 init --node-directory ~/tahoe/tahoe_client --listen-endpoint tcp:8999:interface=localhost
 
 
 Enable the ``invite`` feature
@@ -110,23 +110,27 @@ The invite feature supports the ``join`` option and the access codes for other c
 
 .. warning:: Currently considered experimental. ``invite`` needs to be enabled. It uses magic-wormhole to transmit the secrets.
 
-magic-folder  --config=./mf0 set-config --enable invites
+.. code-block::
+
+    $ magic-folder  --config=./mf0 set-config --enable invites
 
 
 
 Configure the Magic Folder
 ===========================
 
-magic-folder --config ./mf0 init --node-directory ./client0 --listen-endpoint tcp:8999:interface=localhost
+.. code-block::
 
-
-magic-folder --config ./mf0 add --name funny-photos --author $USER ~/photos
+    $ magic-folder --config ./mf0 init --node-directory ./client0 --listen-endpoint tcp:8999:interface=localhost
+    $ magic-folder --config ./mf0 add --name funny-photos --author $USER ~/photos
 
 
 Run the Magic Folder service on the remote client
 ==================================================
 
-magic-folder --config ~/tahoe/mf0 run
+.. code-block::
+
+    $ magic-folder --config ~/tahoe/mf0 run
 
 Confirm that magic folder is running
 -------------------------------------
@@ -134,11 +138,11 @@ Confirm that magic folder is running
 The magic folder service should be able to connect to the storage node.
 
 you should see something like::
+
     2024-09-19T16:00:47-0400 Completed initial Magic Folder setup
     2024-09-19T16:00:47-0400 Connected to 1 storage-servers
 
-
-Prepare the magic folder content for syncing
+Prepare the magic folder content for synching
 =============================================
 
 
